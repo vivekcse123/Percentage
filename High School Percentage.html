@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High School/Percentage</title>
+    <!--<link rel="stylesheet" href="per.css">-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+</head>
+<style>
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body
+{
+    background-image: linear-gradient(to top, blue, green), url("denes-kozma-FU4gBzAc0Y0-unsplash.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+.main
+{
+    width: 50%;
+    background-color: #545a63;
+    border: 1px solid white;
+    position: absolute;
+    top: 30%;
+    left: 22%;
+    border-radius: 10px;
+    box-shadow: 1px 3px 5px blue;
+    position: absolute;
+}
+.main h1
+{
+    position:absolute;
+    top: 40%;
+    left: 10%;
+    color: white;
+    font-size: 15px;
+    border-right: 2px solid white;
+    margin: 2px;
+    padding: 5px;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.box input
+{
+    bottom: 40%;
+    left: 50%;
+    width: 42%;
+    margin: 20px;
+}
+::placeholder
+{
+    color: white;
+    opacity: 0.5;
+}
+input
+{
+    position: relative;
+    display: block;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: #545a63;
+    outline: none;
+    color: white;
+    font-size: 20px;
+}
+button
+{
+    position: relative;
+    left: 60%;
+    background-color: #545a63;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;  
+    outline: none;
+    font-family: 'Balsamiq Sans', cursive;
+}
+button:hover
+{
+    opacity: 0.7;
+}
+span
+{
+    position: relative;
+    left: 20%;
+    opacity: 1;
+    font-family: 'Balsamiq Sans', cursive;
+}
+@media screen and (max-width:800px) {
+    .main, .box{
+      width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+  }
+</style>
+<body>
+    <form name="result_form">
+    <div class="main">
+        <h1>High School <br> Percentage</h1>
+        <div class="box">
+            <input type="text" name="hindi" id="hindi" placeholder="hindi">
+            <input type="text" name="english" id="english" placeholder="english">
+            <input type="text" name="math" id="math" placeholder="math">
+            <input type="text" name="science" id="science" placeholder="scince">
+            <input type="text" name="social" id="social" placeholder="social scince">
+            <input type="text" name="art" id="art" placeholder="art/sanskrit">
+            <button type="button" onclick="Percentage()">Show Percentage</button>
+            <br>
+            <span id="msg"></span>
+        </div>
+        <br><br>
+    </div>
+    </form>
+    <script>
+        function Percentage()
+        {
+            var hindi=Number(document.getElementById("hindi").value);
+            var english=Number(document.getElementById("english").value);
+            var math=Number(document.getElementById("math").value);
+            var science=Number(document.getElementById("science").value);
+            var social=Number(document.getElementById("social").value);
+            var art=Number(document.getElementById('art').value);
+            var avg=0;
+            if(hindi=="" || english=="" || math=="" || science=="" || social=="" ||  art=="")
+            {
+                alert("Fill all the area....!");
+                document.getElementById('msg').innerHTML="Error!";
+                document.getElementById('msg').style.color="red";
+            }
+            else
+            {
+                avg=(hindi+english+math+science+social+art)/6;
+                document.getElementById('msg').innerHTML="Your Respective Percetage is="+avg;
+                document.getElementById('msg').style.color="#163d17";
+                //alert("Your Respective Percetage is="+avg);
+            }
+            document.result_form.reset();
+        }
+    </script>
+</body>
+</html>
